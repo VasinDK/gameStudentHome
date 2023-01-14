@@ -1,9 +1,5 @@
 package main
 
-var age int
-var name string
-var command, param1, param2, param3 string
-
 type Player struct {
 	name string
 	age  int
@@ -18,7 +14,7 @@ type Room struct {
 
 type PlayerState struct {
 	room string
-	// artifactsPlayer []string
+	artifactsPlayer map[string]string
 }
 
 type RoomState struct {
