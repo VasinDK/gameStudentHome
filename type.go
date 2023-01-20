@@ -7,18 +7,25 @@ type Player struct {
 }
 
 type Room struct {
-	name       string
-	accessRoom []string
+	accessRoom    map[string]bool
+	msgAfterMove  string
+	msgLookAround string
 	RoomState
 }
 
 type PlayerState struct {
-	room string
-	artifactsPlayer map[string]string
+	room            string
+	artifactsPlayer map[string]Artifact
 }
 
 type RoomState struct {
-	artifactsRoom map[string]bool
+	artifactsRoom map[string]map[string]Artifact
 }
 
-type fn func(string, string, string)
+type Artifact struct {
+	name		string
+	termsOfUse	string
+	failTakeMessage string
+}
+
+type fn func(string, string, string) string
